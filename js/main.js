@@ -1,6 +1,7 @@
-/**
-* @name main
-* @file Add a small description for this file.
-* @author Hector Emilio hectoremdz@gmail.com
-* @version 1.0.0
-*/
+'use strict';
+import { AppManager } from "./appManager.js";
+window.addEventListener('load', init, false);
+
+function init() {
+    let appManager = new AppManager();
+}
