@@ -1,5 +1,33 @@
+:root {
+    --primary-color: #415a77;
+    --secundary-color: #ff6b6b;
+    --tertiary-color: #f3722c;
+    --other-color: #f9c74f;
+    --navbar-height: 60px;
+}
+
 * {
     user-select: none;
     padding: 0;
     margin: 0;
+}
+
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.navViewController {
+    position: fixed;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--secundary-color);
+}
+
+.controllerContainer {
+    position: fixed;
+    top: var(--navbar-height);
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    background-color: var(--primary-color);
 }
