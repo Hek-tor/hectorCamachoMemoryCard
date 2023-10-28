@@ -1,22 +1,25 @@
 /**
 * @name appManager
-* @file Manage the operation of the app.
+* @file Manage the app.
 * @author Hector Emilio hectoremdz@gmail.com
-* @version 1.0.0
 */
+
+import { MenuController } from "./controllers/menuController/menuController.js";
+import { NavbarController } from "./controllers/navbarController/navbarController.js";
+import { newElementDiv } from "./libs/html.js";
 
 export class AppManager {
     constructor() {
-        this.mainContainer = document.createElement('div');
-        this.mainContainer.className = 'mainContainer';
-        document.body.appendChild(this.mainContainer);
+        this.mainContainer =
+            newElementDiv(document.body, { className: 'mainContainer' });
 
-        this.navViewController = document.createElement('div');
-        this.navViewController.className = 'navViewController';
-        this.mainContainer.appendChild(this.navViewController);
+        this.navbarController =
+            new NavbarController(this, this.mainContainer);
 
-        this.controllerContainer = document.createElement('div');
-        this.controllerContainer.className = 'controllerContainer';
-        this.mainContainer.appendChild(this.controllerContainer);
+        this.controllerContainer =
+            newElementDiv(this.mainContainer, { className: 'controllerContainer' });
+
+        this.menuController =
+            new MenuController(this, this.controllerContainer);
     }
 }

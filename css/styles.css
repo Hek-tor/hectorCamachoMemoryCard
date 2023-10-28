@@ -4,6 +4,7 @@
     --tertiary-color: #f3722c;
     --other-color: #f9c74f;
     --navbar-height: 60px;
+    --fade-color: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -17,17 +18,23 @@
     height: 100vh;
 }
 
-.navViewController {
-    position: fixed;
-    width: 100%;
-    height: var(--navbar-height);
-    background-color: var(--secundary-color);
-}
-
 .controllerContainer {
     position: fixed;
     top: var(--navbar-height);
     width: 100%;
     height: calc(100% - var(--navbar-height));
+}
+
+.fade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--fade-color);
+}
+
+.elementContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-color: var(--primary-color);
 }

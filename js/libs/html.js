@@ -1,0 +1,14 @@
+export const newElementDiv = function (parent, attributes) {
+    return createElement('div', parent, attributes);
+};
+
+const createElement = function (type, parent, attributes) {
+    let element = document.createElement(type);
+    parent.appendChild(element);
+    if (attributes != null) {
+        for (const attribute in attributes) {
+            element[attribute] = attributes[attribute];
+        }
+    }
+    return element;
+};
