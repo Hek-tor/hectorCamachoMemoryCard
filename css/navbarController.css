@@ -4,3 +4,17 @@
     height: var(--navbar-height);
     background-color: var(--secundary-color);
 }
+
+.navbarController_backBtn {
+    user-select: none;
+    cursor: pointer;
+
+    font-size: 35px;
+    font-weight: bold;
+    width: var(--navbar-height);
+    height: var(--navbar-height);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

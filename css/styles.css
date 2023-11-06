@@ -8,6 +8,7 @@
 }
 
 * {
+    font-family: 'Mukta', sans-serif;
     user-select: none;
     padding: 0;
     margin: 0;
@@ -37,4 +38,31 @@
     width: 100%;
     height: 100%;
     background-color: var(--primary-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameBtn {
+    width: 80%;
+    height: 50px;
+    background-color: var(--tertiary-color);
+
+    font-size: 25px;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none !important;
 }

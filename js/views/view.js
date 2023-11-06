@@ -5,4 +5,8 @@ export class View {
         this.parent = parent;
         this.container = newElementDiv(parent, null);
     }
+
+    delete() {
+        this.parent.removeChild(this.container);
+    }
 }

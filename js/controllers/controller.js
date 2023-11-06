@@ -4,4 +4,8 @@ export class Controller {
         this.parent = parent;
         this.view = null;
     }
+
+    delete() {
+        this.view.delete();
+    }
 }
