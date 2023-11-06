@@ -9,6 +9,8 @@ export class LoginView extends ViewForController {
         this.loginBtn
             = newElementDiv(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'LOGIN', onclick: this.OnLoginBtn.bind(this) });
+        this.setStartPosition();
+        this.moveIn();
     }
 
     OnLoginBtn() { }

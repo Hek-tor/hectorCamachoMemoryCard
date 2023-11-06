@@ -6,6 +6,6 @@ export class Controller {
     }
 
     delete() {
-        this.view.delete();
+        this.view.moveOut();
     }
 }
