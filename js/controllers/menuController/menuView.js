@@ -1,4 +1,4 @@
-import { LOGIN } from "../../libs/constants.js";
+import { CREDITS, DIFFICULTY, LOGIN, PLAY, SCORES, THEMES } from "../../libs/constants.js";
 import { newElementDiv } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
@@ -36,13 +36,23 @@ export class MenuView extends ViewForController {
         this.controller.appManager.showController(LOGIN);
     }
 
-    OnPlayBtn() { }
+    OnPlayBtn() {
+        this.controller.appManager.showController(PLAY);
+    }
 
-    OnScoresBtn() { }
+    OnScoresBtn() {
+        this.controller.appManager.showController(SCORES);
+    }
 
-    OnDifficultyBtn() { }
+    OnDifficultyBtn() {
+        this.controller.appManager.showController(DIFFICULTY);
+    }
 
-    OnThemesBtn() { }
+    OnThemesBtn() {
+        this.controller.appManager.showController(THEMES);
+    }
 
-    OnCreditsBtn() { }
+    OnCreditsBtn() {
+        this.controller.appManager.showController(CREDITS);
+    }
 }
