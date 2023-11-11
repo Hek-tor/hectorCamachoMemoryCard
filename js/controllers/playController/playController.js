@@ -8,8 +8,11 @@ export class PlayController extends Controller {
         this.service = new PlayService(this);
         this.view = new PlayView(this, parent);
         this.view.updateHUD(0, 0);
+        this.service.getCards();
+    }
 
-        this.cards = this.service.getCards();
+    receiveCards(cards) {
+        this.cards = cards;
         this.view.showCards(this.cards);
     }
 }
