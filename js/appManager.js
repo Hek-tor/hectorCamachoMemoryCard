@@ -3,32 +3,32 @@
 * @file Manage the app.
 * @author Hector Emilio hectoremdz@gmail.com
 */
-
-import { CreditsController } from "./controllers/creditsController/creditsController.js";
-import { DifficultyController } from "./controllers/difficultyController/difficultyController.js";
-import { LoginController } from "./controllers/loginController/loginController.js";
-import { MenuController } from "./controllers/menuController/menuController.js";
-import { NavbarController } from "./controllers/navbarController/navbarController.js";
-import { PlayController } from "./controllers/playController/playController.js";
-import { ScoreController } from "./controllers/scoreController/scoreController.js";
-import { ThemesController } from "./controllers/themesController/themesController.js";
-import { CREDITS, DIFFICULTY, LOGIN, MENU, NONE, PLAY, SCORES, THEMES } from "./libs/constants.js";
-import { newElementDiv } from "./libs/html.js";
+import { CreditsController } from './controllers/creditsController/creditsController.js';
+import { DifficultyController } from './controllers/difficultyController/difficultyController.js';
+import { LoginController } from './controllers/loginController/loginController.js';
+import { MenuController } from './controllers/menuController/menuController.js';
+import { NavbarController } from './controllers/navbarController/navbarController.js';
+import { PlayController } from './controllers/playController/playController.js';
+import { ScoreController } from './controllers/scoreController/scoreController.js';
+import { ThemesController } from './controllers/themesController/themesController.js';
+import { CREDITS, DIFFICULTY, LOGIN, MENU, NONE, PLAY, SCORES, THEMES } from './libs/constants.js';
+import { div } from './libs/html.js';
 
 export class AppManager {
     constructor() {
         this.mainContainer =
-            newElementDiv(document.body, { className: 'mainContainer' });
+            div(document.body, { className: 'mainContainer' });
 
         this.navbarController =
             new NavbarController(this, this.mainContainer);
 
         this.controllerContainer =
-            newElementDiv(this.mainContainer, { className: 'controllerContainer' });
+            div(this.mainContainer, { className: 'controllerContainer' });
 
         this.menuController =
             new MenuController(this, this.controllerContainer);
         this.currentController = null;
+        this.showController(PLAY);
     }
 
     showController(type) {

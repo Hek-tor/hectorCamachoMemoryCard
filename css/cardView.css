@@ -1,0 +1,14 @@
+.cardView {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--other-color);
+    width: 100px;
+    height: 120px;
+    font-size: 60px;
+
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

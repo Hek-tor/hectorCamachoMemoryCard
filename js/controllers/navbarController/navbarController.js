@@ -1,5 +1,5 @@
 import { MENU } from "../../libs/constants.js";
-import { newElementDiv } from "../../libs/html.js";
+import { div } from "../../libs/html.js";
 import { View } from "../../views/view.js";
 import { Controller } from "../controller.js";
 
@@ -10,7 +10,7 @@ export class NavbarController extends Controller {
         this.view.container.className = 'navbarController';
 
         this.backBtn
-            = newElementDiv(this.view.container,
+            = div(this.view.container,
                 { className: 'navbarController_backBtn', onclick: this.onBackBtn.bind(this), innerHTML: '〱' });
         this.hideBackBtn();
     }

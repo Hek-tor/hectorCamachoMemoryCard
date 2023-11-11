@@ -1,12 +1,12 @@
-import { newElementDiv } from "../libs/html.js";
+import { div } from "../libs/html.js";
 import { View } from "./view.js";
 
 export class ViewForController extends View {
     constructor(controller, parent) {
         super(parent);
         this.controller = controller;
-        this.fade = newElementDiv(this.container, { className: 'fade' });
-        this.elementContainer = newElementDiv(this.container, { className: 'elementContainer' });
+        this.fade = div(this.container, { className: 'fade' });
+        this.elementContainer = div(this.container, { className: 'elementContainer' });
     }
 
     setStartPosition() {
@@ -21,7 +21,7 @@ export class ViewForController extends View {
     moveOut() {
         gsap.to(this.elementContainer,
             { x: window.innerWidth, ease: "slow(0.7,0.7,false)", onComplete: this.moveOutCompleted.bind(this) });
-        gsap.to(this.fade, { opacity: 0, duration: 0.5, ease: "power1.in"});
+        gsap.to(this.fade, { opacity: 0, duration: 0.5, ease: "power1.in" });
     }
 
     moveOutCompleted() {

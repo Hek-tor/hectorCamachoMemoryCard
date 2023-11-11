@@ -1,4 +1,4 @@
-import { newElementDiv } from "../../libs/html.js";
+import { div } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
 export class LoginView extends ViewForController {
@@ -7,7 +7,7 @@ export class LoginView extends ViewForController {
         this.container.className = 'loginController';
 
         this.loginBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'LOGIN', onclick: this.OnLoginBtn.bind(this) });
         this.setStartPosition();
         this.moveIn();

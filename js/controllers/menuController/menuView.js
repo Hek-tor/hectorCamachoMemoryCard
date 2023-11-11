@@ -1,5 +1,5 @@
 import { CREDITS, DIFFICULTY, LOGIN, PLAY, SCORES, THEMES } from "../../libs/constants.js";
-import { newElementDiv } from "../../libs/html.js";
+import { div } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
 export class MenuView extends ViewForController {
@@ -8,27 +8,27 @@ export class MenuView extends ViewForController {
         this.container.className = 'menuController';
 
         this.loginBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'LOGIN', onclick: this.OnLoginBtn.bind(this) });
 
         this.OnPlayBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'PLAY', onclick: this.OnPlayBtn.bind(this) });
 
         this.OnScoresBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'SCORE', onclick: this.OnScoresBtn.bind(this) });
 
         this.OnDifficultyBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'DIFFICULTY', onclick: this.OnDifficultyBtn.bind(this) });
 
         this.OnThemesBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'THEMES', onclick: this.OnThemesBtn.bind(this) });
 
         this.OnCreditsBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'CREDITS', onclick: this.OnCreditsBtn.bind(this) });
     }
 

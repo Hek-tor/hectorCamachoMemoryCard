@@ -3,3 +3,43 @@
     width: 100%;
     height: 100%;
 }
+
+.playController_hudContainer {
+    width: 90%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playController_labelContainer {
+    width: 70%;
+}
+
+.playController_gameBtn {
+    width: 30%;
+    margin-bottom: 0px !important;
+}
+
+.playController_clicksLbl {
+    font-weight: bold;
+    width: 100%;
+    font-size: 25px;
+}
+
+.playController_timeLbl {
+    font-weight: bold;
+    width: 100%;
+    font-size: 25px;
+}
+
+.playController_cardsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-top: 20px;
+    padding: 5px;
+    width: 90%;
+    height: auto;
+}

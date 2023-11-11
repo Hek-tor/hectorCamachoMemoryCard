@@ -1,4 +1,4 @@
-import { newElementDiv } from "../../libs/html.js";
+import { div } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
 export class ThemesView extends ViewForController {
@@ -7,7 +7,7 @@ export class ThemesView extends ViewForController {
         this.container.className = 'themesController';
 
         this.loginBtn
-            = newElementDiv(this.elementContainer,
+            = div(this.elementContainer,
                 { className: 'gameBtn', innerHTML: 'THEMES', onclick: this.OnThemesBtn.bind(this) });
         this.setStartPosition();
         this.moveIn();

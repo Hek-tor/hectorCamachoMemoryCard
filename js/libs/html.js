@@ -1,5 +1,9 @@
-export const newElementDiv = function (parent, attributes) {
+export const div = function (parent, attributes) {
     return createElement('div', parent, attributes);
+};
+
+export const p = function (parent, attributes) {
+    return createElement('p', parent, attributes);
 };
 
 const createElement = function (type, parent, attributes) {
