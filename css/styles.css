@@ -5,6 +5,10 @@
     --other-color: #f9c74f;
     --navbar-height: 60px;
     --fade-color: rgba(0, 0, 0, 0.75);
+
+    --card-normal: #f9c74f;
+    --card-show: #ce6e42;
+    --card-discovered: #63ce42;
 }
 
 * {

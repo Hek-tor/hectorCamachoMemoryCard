@@ -4,11 +4,19 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--other-color);
+    background-color: var(--card-normal);
     width: 100px;
     height: 120px;
     font-size: 60px;
 
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.cardView_show {
+    background-color: var(--card-show);
+}
+
+.cardView_discovered {
+    background-color: var(--card-discovered);
 }
