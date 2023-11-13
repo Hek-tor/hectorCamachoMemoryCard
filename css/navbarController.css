@@ -1,15 +1,19 @@
 .navbarController {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     position: fixed;
     width: 100%;
     height: var(--navbar-height);
-    background-color: var(--secundary-color);
+    background-color: #fff;
 }
 
 .navbarController_backBtn {
     user-select: none;
     cursor: pointer;
 
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bold;
     width: var(--navbar-height);
     height: var(--navbar-height);
@@ -17,4 +21,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bannerLogo {
+    width: 70%;
+    height: 90px;
 }
