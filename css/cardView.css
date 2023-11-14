@@ -27,13 +27,13 @@
 
 
 .cardView_discovered:hover {
-    -webkit-animation: swing 1s ease;
-    animation: swing 1s ease;
+    -webkit-animation: shakeMove 1s ease-in;
+    animation: shakeMove 1s ease-in;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
 }
 
-@-webkit-keyframes swing {
+@-webkit-keyframes shakeMove {
     15% {
         -webkit-transform: translateX(5px);
         transform: translateX(5px);
@@ -65,7 +65,7 @@
     }
 }
 
-@keyframes swing {
+@keyframes shakeMove {
     15% {
         -webkit-transform: translateX(5px);
         transform: translateX(5px);
