@@ -10,24 +10,32 @@ export class PlayController extends Controller {
         this.service.getCards();
 
         this.view.container.addEventListener('onCardSelected', this.onCardSelected.bind(this));
+        this.view.container.addEventListener('onResetBtnEvent', this.resetGame.bind(this));
 
+        this.cards = null;
         this.cardView1 = null;
         this.cardView2 = null;
         this.showingTimer = null;
         this.playingTimer = null;
         this.clicksCounter = 0;
         this.timeCounter = 0;
+        this.gameComplete = false;
         this.updateHUD();
-
-        this.playingTimer = setInterval(this.updateTimeCounter.bind(this), 1000);
     }
 
     receiveCards(cards) {
         this.cards = cards;
         this.view.showCards(this.cards);
+
+        this.timeCounter = 0;
+        this.clicksCounter = 0;
+        window.clearInterval(this.playingTimer);
+        this.playingTimer = null;
+        this.playingTimer = setInterval(this.updateTimeCounter.bind(this), 1000);
     }
 
     onCardSelected(event) {
+        if (this.gameComplete) return;
         if (this.cardView1 !== null && this.cardView2 !== null) return;
 
         let cardView = event.detail.cardView;
@@ -55,6 +63,13 @@ export class PlayController extends Controller {
             this.cardView1.discovered();
             this.cardView2.discovered();
             this.clearCardsViews();
+
+            if (this.isGameComplete()) {
+                this.gameComplete = true;
+                window.clearInterval(this.playingTimer);
+                this.playingTimer = null;
+            }
+
         } else {
             this.showingTimer = window.setTimeout
                 (this.hideCardsWhenNotEquals.bind(this), 1000)
@@ -80,6 +95,32 @@ export class PlayController extends Controller {
 
     updateTimeCounter() {
         this.timeCounter += 1;
+        this.updateHUD();
+    }
+
+    isGameComplete() {
+        for (let i = 0; i < this.cards.length; i++) {
+            if (!this.cards[i].discovered) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    resetGame() {
+        this.clearCardsViews();
+        this.gameComplete = false;
+        this.timeCounter = 0;
+        this.clicksCounter = 0;
+
+        window.clearTimeout(this.showingTimer);
+        this.showingTimer = null;
+
+        window.clearInterval(this.playingTimer);
+        this.playingTimer = null;
+
+        this.view.removeCards();
+        this.service.getCards();
         this.updateHUD();
     }
 }

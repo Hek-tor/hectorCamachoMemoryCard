@@ -9,6 +9,8 @@ export class CardView extends View {
     }
 
     onCardSelected() {
+        if (this.card.discovered) return;
+
         const onCardSelectedEvent = new CustomEvent("onCardSelected", {
             bubbles: true,
             detail: { cardView: this },
@@ -22,6 +24,7 @@ export class CardView extends View {
     }
 
     discovered() {
+        this.card.discovered = true;
         this.container.classList.remove('cardView_show');
         this.container.classList.add('cardView_discovered');
     }

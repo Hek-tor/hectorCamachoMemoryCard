@@ -16,7 +16,6 @@ export class PlayService extends Service {
                 let card = new Card(i, cardData.id, cardData.icon)
                 cards.push(card);
             });
-            console.log(cards)
             this.controller.receiveCards(cards);
         }
         request.send();

@@ -24,7 +24,13 @@ export class PlayView extends ViewForController {
         this.moveIn();
     }
 
-    onResetBtn() { }
+    onResetBtn() {
+        const onResetBtnEvent = new CustomEvent("onResetBtnEvent", {
+            bubbles: true,
+            detail: null,
+        });
+        this.container.dispatchEvent(onResetBtnEvent);
+    }
 
     updateHUD(clicks, time) {
         this.clicksLbl.innerHTML = `CLICKS: ${clicks}`;
@@ -35,5 +41,9 @@ export class PlayView extends ViewForController {
         cards.forEach(card => {
             let cardView = new CardView(this.cardsContainer, card)
         })
+    }
+
+    removeCards() {
+        this.cardsContainer.innerHTML = '';
     }
 }
