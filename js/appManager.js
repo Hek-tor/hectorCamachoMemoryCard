@@ -11,7 +11,7 @@ import { NavbarController } from './controllers/navbarController/navbarControlle
 import { PlayController } from './controllers/playController/playController.js';
 import { ScoreController } from './controllers/scoreController/scoreController.js';
 import { ThemesController } from './controllers/themesController/themesController.js';
-import { CREDITS, DIFFICULTY, LOGIN, MENU, NONE, PLAY, SCORES, THEMES } from './libs/constants.js';
+import { CREDITS, DIFFICULTY, DIFFICULTY_MEDIUM, LOGIN, MENU, NONE, PLAY, SCORES, THEMES } from './libs/constants.js';
 import { div } from './libs/html.js';
 
 export class AppManager {
@@ -28,7 +28,10 @@ export class AppManager {
         this.menuController =
             new MenuController(this, this.controllerContainer);
         this.currentController = null;
-        this.showController(PLAY); //Active play controller
+
+        if (!localStorage.getItem('difficulty')) {
+            window.localStorage.setItem('difficulty', DIFFICULTY_MEDIUM);
+        }
     }
 
     showController(type) {
