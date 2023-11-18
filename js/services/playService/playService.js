@@ -1,3 +1,4 @@
+import { Card } from "../../models/card.js";
 import { Service } from "../service.js";
 
 export class PlayService extends Service {
@@ -10,9 +11,14 @@ export class PlayService extends Service {
         request.open('GET', './js/services/playService/cards.json');
         request.onload = () => {
             let data = JSON.parse(request.response);
-            this.controller.receiveCards(data.cards);
+            let cards = [];
+            data.cards.forEach((cardData, i) => {
+                let card = new Card(i, cardData.id, cardData.icon)
+                cards.push(card);
+            });
+            console.log(cards)
+            this.controller.receiveCards(cards);
         }
-        //no esta mandando el send
         request.send();
     }
 }

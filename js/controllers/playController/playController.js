@@ -7,7 +7,6 @@ export class PlayController extends Controller {
         super(appManager, parent);
         this.service = new PlayService(this);
         this.view = new PlayView(this, parent);
-        this.view.updateHUD(0, 0);
         this.service.getCards();
 
         this.view.container.addEventListener('onCardSelected', this.onCardSelected.bind(this));
@@ -15,6 +14,12 @@ export class PlayController extends Controller {
         this.cardView1 = null;
         this.cardView2 = null;
         this.showingTimer = null;
+        this.playingTimer = null;
+        this.clicksCounter = 0;
+        this.timeCounter = 0;
+        this.updateHUD();
+
+        this.playingTimer = setInterval(this.updateTimeCounter.bind(this), 1000);
     }
 
     receiveCards(cards) {
@@ -26,13 +31,18 @@ export class PlayController extends Controller {
         if (this.cardView1 !== null && this.cardView2 !== null) return;
 
         let cardView = event.detail.cardView;
-
         if (this.cardView1 === null) {
             this.cardView1 = cardView;
             this.cardView1.showIcon();
-        } else if (this.cardView2 === null) {
+            this.clicksCounter += 1;
+            this.updateHUD();
+        } else if (this.cardView2 === null && this.cardView1.card.identifier !== cardView.card.identifier) {
             this.cardView2 = cardView;
             this.cardView2.showIcon();
+            this.clicksCounter += 1;
+            this.updateHUD();
+        } else {
+            return;
         }
 
         if (this.cardView1 !== null && this.cardView2 !== null) {
@@ -62,5 +72,14 @@ export class PlayController extends Controller {
     clearCardsViews() {
         this.cardView1 = null;
         this.cardView2 = null;
+    }
+
+    updateHUD() {
+        this.view.updateHUD(this.clicksCounter, this.timeCounter);
+    }
+
+    updateTimeCounter() {
+        this.timeCounter += 1;
+        this.updateHUD();
     }
 }
