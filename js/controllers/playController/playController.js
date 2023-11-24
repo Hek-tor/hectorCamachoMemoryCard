@@ -120,7 +120,7 @@ export class PlayController extends Controller {
         this.playingTimer = null;
 
         this.view.removeCards();
-        this.service.getCards();
+        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme());
         this.updateHUD();
     }
 }
