@@ -1,4 +1,4 @@
-import { THEMES_FACES, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
+import { THEMES_ANIMALS as THEMES_ANIMALS, THEMES_FLAGS, THEMES_FOOD } from "../../libs/constants.js";
 import { div, p } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
@@ -9,7 +9,7 @@ export class ThemesView extends ViewForController {
 
         this.title = p(this.elementContainer, { className: 'game_title', innerHTML: 'Select a themes:' });
 
-        this.facesBtn = div(this.elementContainer, { className: 'gameBtn', innerHTML: 'FACES', onclick: this.OnFacesBtn.bind(this) });
+        this.facesBtn = div(this.elementContainer, { className: 'gameBtn', innerHTML: 'ANIMALS', onclick: this.OnFacesBtn.bind(this) });
 
         this.foodBtn = div(this.elementContainer, { className: 'gameBtn', innerHTML: 'FOOD', onclick: this.OnFoodBtn.bind(this) });
 
@@ -20,7 +20,7 @@ export class ThemesView extends ViewForController {
     }
 
     OnFacesBtn() {
-        window.localStorage.setItem('theme', THEMES_FACES);
+        window.localStorage.setItem('theme', THEMES_ANIMALS);
     }
 
     OnFoodBtn() {

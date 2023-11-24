@@ -11,7 +11,7 @@ import { NavbarController } from './controllers/navbarController/navbarControlle
 import { PlayController } from './controllers/playController/playController.js';
 import { ScoreController } from './controllers/scoreController/scoreController.js';
 import { ThemesController } from './controllers/themesController/themesController.js';
-import { CREDITS, DIFFICULTY, DIFFICULTY_MEDIUM, LOGIN, MENU, NONE, PLAY, SCORES, THEMES, THEMES_FACES } from './libs/constants.js';
+import { CREDITS, DIFFICULTY, DIFFICULTY_MEDIUM, LOGIN, MENU, NONE, PLAY, SCORES, THEMES, THEMES_ANIMALS } from './libs/constants.js';
 import { div } from './libs/html.js';
 
 export class AppManager {
@@ -33,7 +33,7 @@ export class AppManager {
             window.localStorage.setItem('difficulty', DIFFICULTY_MEDIUM);
         }
         if (!localStorage.getItem('theme')) {
-            window.localStorage.setItem('theme', THEMES_FACES);
+            window.localStorage.setItem('theme', THEMES_ANIMALS);
         }
     }
 
