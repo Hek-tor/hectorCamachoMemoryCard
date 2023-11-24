@@ -11,7 +11,6 @@ export class PlayService extends Service {
         let request = new XMLHttpRequest();
         request.open('GET', url);
         request.onload = () => {
-            console.log(request);
             let data = JSON.parse(request.response);
             let cards = [];
             data.cards.forEach((cardData, i) => {
