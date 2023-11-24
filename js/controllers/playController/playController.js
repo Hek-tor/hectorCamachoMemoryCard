@@ -7,7 +7,7 @@ export class PlayController extends Controller {
         super(appManager, parent);
         this.service = new PlayService(this);
         this.view = new PlayView(this, parent);
-        this.service.getCards();
+        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme());
 
         this.view.container.addEventListener('onCardSelected', this.onCardSelected.bind(this));
         this.view.container.addEventListener('onResetBtnEvent', this.resetGame.bind(this));
