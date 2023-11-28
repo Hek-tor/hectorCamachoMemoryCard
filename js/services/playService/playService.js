@@ -7,7 +7,7 @@ export class PlayService extends Service {
     }
 
     getCards(difficulty, theme) {
-        let url = `http://localhost:3000/cards/${difficulty}/${theme}`;
+        let url = `https://memory-game-backend-five.vercel.app/cards/${difficulty}/${theme}`;
         let request = new XMLHttpRequest();
         request.open('GET', url);
         request.onload = () => {

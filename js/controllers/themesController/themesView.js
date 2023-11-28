@@ -1,4 +1,4 @@
-import { THEMES_ANIMALS as THEMES_ANIMALS, THEMES_SPORTS, THEMES_FOOD } from "../../libs/constants.js";
+import { THEMES_ANIMALS, THEMES_SPORTS, THEMES_FOOD } from "../../libs/constants.js";
 import { div, p } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
 
