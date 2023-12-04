@@ -1,4 +1,3 @@
-import { Card } from "../../models/card.js";
 import { Service } from "../service.js";
 
 export class ScoresServices extends Service {
@@ -8,17 +7,16 @@ export class ScoresServices extends Service {
 
     getScores() {
         let url = `https://memory-game-backend-five.vercel.app/scores`;
+
         let request = new XMLHttpRequest();
         request.open('GET', url);
         request.onload = () => {
-            let data = JSON.parse(request.response);
-            // let cards = [];
-            // data.cards.forEach((cardData, i) => {
-            //     let card = new Card(i, cardData.id, cardData.icon)
-            //     cards.push(card);
-            // });
-            // this.controller.receiveCards(cards);
-        }
+            if (request.status >= 200 && request.status < 400) {
+                let dataScore = JSON.parse(request.response);
+            } else {
+                console.warn('Error en la solicitud. Estado:', request.status);
+            }
+        };
         request.send();
-    }
+    };
 }
