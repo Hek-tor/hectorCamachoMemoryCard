@@ -7,6 +7,7 @@ export class ScoresServices extends Service {
 
     getScores() {
         let url = `https://memory-game-backend-five.vercel.app/scores`;
+        // let url = `http://localhost:3000/scores`;
 
         let request = new XMLHttpRequest();
         request.open('GET', url);
