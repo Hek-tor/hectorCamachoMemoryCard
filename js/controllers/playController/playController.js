@@ -68,6 +68,7 @@ export class PlayController extends Controller {
                 this.gameComplete = true;
                 window.clearInterval(this.playingTimer);
                 this.playingTimer = null;
+                this.service.sendScores({});
             }
 
         } else {

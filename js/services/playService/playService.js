@@ -21,4 +21,8 @@ export class PlayService extends Service {
         }
         request.send();
     }
+
+    sendScores() {
+        
+    }
 }

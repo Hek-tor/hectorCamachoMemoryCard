@@ -1,3 +1,4 @@
+import { Score } from "../../models/scores.js";
 import { Service } from "../service.js";
 
 export class ScoresServices extends Service {
@@ -13,7 +14,12 @@ export class ScoresServices extends Service {
         request.open('GET', url);
         request.onload = () => {
             if (request.status >= 200 && request.status < 400) {
-                let dataScore = request.response;
+                let data = JSON.parse(request.response);
+                let scores = [];
+                data.forEach((scoreData, i) => {
+                    let score = new Score(scoreData.clicks, scoreData.difficulty, scoreData.score, scoreData.time, scoreData.username);
+                    scores.push(score);
+                })
             } else {
                 console.warn('Error en la solicitud. Estado:', request.status);
             }
