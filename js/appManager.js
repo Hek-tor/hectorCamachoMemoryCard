@@ -35,7 +35,6 @@ export class AppManager {
         if (!localStorage.getItem('theme')) {
             window.localStorage.setItem('theme', THEMES_ANIMALS);
         }
-        this.showController(CREDITS)
     }
 
     showController(type) {
