@@ -7,10 +7,10 @@ export class ScoreController extends Controller {
         super(appManager, parent);
         this.view = new ScoreView(this, parent);
         this.service = new ScoresServices(this);
-        this.service.getScores();
+        this.service.getScores(this.appManager.getBaseURL());
     }
 
     receiveScores(scores) {
-        
+        console.log(scores);
     }
 }

@@ -16,6 +16,7 @@ import { div } from './libs/html.js';
 
 export class AppManager {
     constructor() {
+        this.isDevelopment = true;
         this.mainContainer =
             div(document.body, { className: 'mainContainer' });
 
@@ -78,5 +79,10 @@ export class AppManager {
 
     getTheme() {
         return localStorage.getItem('theme');
+    }
+
+    getBaseURL() {
+        return this.isDevelopment
+            ? 'http://localhost:3000/' : 'https://memory-game-backend-five.vercel.app/';
     }
 }

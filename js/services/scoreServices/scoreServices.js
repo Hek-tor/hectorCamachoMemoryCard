@@ -6,9 +6,8 @@ export class ScoresServices extends Service {
         super(controller);
     }
 
-    getScores() {
-        let url = `https://memory-game-backend-five.vercel.app/scores`;
-        // let url = `http://localhost:3000/scores`;
+    getScores(baseURL) {
+        let url = `${baseURL}scores`;
 
         let request = new XMLHttpRequest();
         request.open('GET', url);
@@ -19,7 +18,8 @@ export class ScoresServices extends Service {
                 data.forEach((scoreData, i) => {
                     let score = new Score(scoreData.clicks, scoreData.difficulty, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
-                })
+                });
+                this.controller.recieveScores(scores);
             } else {
                 console.warn('Error en la solicitud. Estado:', request.status);
             }

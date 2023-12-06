@@ -7,7 +7,7 @@ export class PlayController extends Controller {
         super(appManager, parent);
         this.service = new PlayService(this);
         this.view = new PlayView(this, parent);
-        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme());
+        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme(), this.appManager.getBaseURL());
 
         this.view.container.addEventListener('onCardSelected', this.onCardSelected.bind(this));
         this.view.container.addEventListener('onResetBtnEvent', this.resetGame.bind(this));
@@ -121,7 +121,7 @@ export class PlayController extends Controller {
         this.playingTimer = null;
 
         this.view.removeCards();
-        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme());
+        this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme(), this.appManager.getBaseURL());
         this.updateHUD();
     }
 }

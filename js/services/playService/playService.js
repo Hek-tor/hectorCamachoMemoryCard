@@ -6,8 +6,9 @@ export class PlayService extends Service {
         super(controller);
     }
 
-    getCards(difficulty, theme) {
-        let url = `https://memory-game-backend-five.vercel.app/cards/${difficulty}/${theme}`;
+    getCards(difficulty, theme, baseURL) {
+        let url = `${baseURL}cards/${difficulty}/${theme}`;
+        console.log(url)
         let request = new XMLHttpRequest();
         request.open('GET', url);
         request.onload = () => {
@@ -22,7 +23,7 @@ export class PlayService extends Service {
         request.send();
     }
 
-    sendScores() {
-        
+    sendScores(score) {
+        let url = `https://memory-game-backend-five.vercel.app/scores`;
     }
 }
