@@ -8,7 +8,6 @@ export class PlayService extends Service {
 
     getCards(difficulty, theme, baseURL) {
         let url = `${baseURL}cards/${difficulty}/${theme}`;
-        console.log(url)
         let request = new XMLHttpRequest();
         request.open('GET', url);
         request.onload = () => {

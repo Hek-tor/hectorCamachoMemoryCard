@@ -16,7 +16,7 @@ import { div } from './libs/html.js';
 
 export class AppManager {
     constructor() {
-        this.isDevelopment = true;
+        this.isDevelopment = false;
         this.mainContainer =
             div(document.body, { className: 'mainContainer' });
 

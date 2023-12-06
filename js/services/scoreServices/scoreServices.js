@@ -19,7 +19,7 @@ export class ScoresServices extends Service {
                     let score = new Score(scoreData.clicks, scoreData.difficulty, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
                 });
-                this.controller.recieveScores(scores);
+                this.controller.receiveScores(scores);
             } else {
                 console.warn('Error en la solicitud. Estado:', request.status);
             }
