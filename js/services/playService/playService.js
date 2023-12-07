@@ -22,7 +22,14 @@ export class PlayService extends Service {
         request.send();
     }
 
-    sendScores(score) {
-        let url = `https://memory-game-backend-five.vercel.app/scores`;
+    sendScores(score, baseURL) {
+        let url = `${baseURL}score`;
+        let request = new XMLHttpRequest();
+        request.open('POST', url);
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.onload = () => {
+            console.log(request);
+        }
+        request.send(JSON.stringify(score));
     }
 }

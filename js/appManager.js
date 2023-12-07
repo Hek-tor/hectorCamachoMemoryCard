@@ -16,7 +16,7 @@ import { div } from './libs/html.js';
 
 export class AppManager {
     constructor() {
-        this.isDevelopment = false;
+        this.isDevelopment = true;
         this.mainContainer =
             div(document.body, { className: 'mainContainer' });
 
@@ -81,8 +81,11 @@ export class AppManager {
         return localStorage.getItem('theme');
     }
 
+    getUsername() {
+        return localStorage.getItem('username');
+    }
+
     getBaseURL() {
-        return this.isDevelopment
-            ? 'http://localhost:3000/' : 'https://memory-game-backend-five.vercel.app/';
+        return this.isDevelopment ? 'http://localhost:3000/' : 'https://memory-game-backend-five.vercel.app/';
     }
 }

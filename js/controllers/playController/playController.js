@@ -1,6 +1,7 @@
 import { Controller } from "../controller.js";
 import { PlayView } from "./playView.js";
 import { PlayService } from "../../services/playService/playService.js";
+import { Score } from "../../models/scores.js";
 
 export class PlayController extends Controller {
     constructor(appManager, parent) {
@@ -68,7 +69,10 @@ export class PlayController extends Controller {
                 this.gameComplete = true;
                 window.clearInterval(this.playingTimer);
                 this.playingTimer = null;
-                this.service.sendScores({});
+                let value = this.clicksCounter + this.timeCounter;
+                let score = new Score(this.clicksCounter, this.appManager.getDifficulty(), value, this.timeCounter,
+                    this.appManager.getUsername());
+                this.service.sendScores(score, this.appManager.getBaseURL());
             }
 
         } else {
