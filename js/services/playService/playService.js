@@ -24,12 +24,24 @@ export class PlayService extends Service {
 
     sendScores(score, baseURL) {
         let url = `${baseURL}score`;
-        let request = new XMLHttpRequest();
-        request.open('POST', url);
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.onload = () => {
-            console.log(request);
-        }
-        request.send(JSON.stringify(score));
+        let params = {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json;charset=UTF-8',
+            },
+            body: JSON.stringify(score),
+        };
+
+        fetch(url, params).then(response => {
+            response.json()
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }).catch(err => {
+            console.log(err);
+        });
     }
 }
