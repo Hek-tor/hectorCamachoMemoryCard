@@ -8,18 +8,19 @@ export class PlayService extends Service {
 
     getCards(difficulty, theme, baseURL) {
         let url = `${baseURL}cards/${difficulty}/${theme}`;
-        let request = new XMLHttpRequest();
-        request.open('GET', url);
-        request.onload = () => {
-            let data = JSON.parse(request.response);
-            let cards = [];
-            data.cards.forEach((cardData, i) => {
-                let card = new Card(i, cardData.id, cardData.icon)
-                cards.push(card);
-            });
-            this.controller.receiveCards(cards);
-        }
-        request.send();
+
+        fetch(url).then(response => {
+            response.json().then(data => {
+                let cards = [];
+                data.cards.forEach((cardData, i) => {
+                    let card = new Card(i, cardData.id, cardData.icon)
+                    cards.push(card);
+                });
+                this.controller.receiveCards(cards);
+            })
+        }).catch(error => {
+            console.log('Parsing json:', error);
+        });
     }
 
     sendScores(score, baseURL) {
@@ -34,9 +35,6 @@ export class PlayService extends Service {
 
         fetch(url, params).then(response => {
             response.json()
-                .then(data => {
-                    console.log(data);
-                })
                 .catch(error => {
                     console.log(error);
                 });

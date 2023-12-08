@@ -8,22 +8,19 @@ export class ScoresServices extends Service {
 
     getScores(baseURL) {
         let url = `${baseURL}scores`;
-
-        let request = new XMLHttpRequest();
-        request.open('GET', url);
-        request.onload = () => {
-            if (request.status >= 200 && request.status < 400) {
-                let data = JSON.parse(request.response);
+        fetch(url).then(response => {
+            response.json().then(data => {
                 let scores = [];
                 data.forEach((scoreData, i) => {
                     let score = new Score(scoreData.clicks, scoreData.difficulty, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
                 });
                 this.controller.receiveScores(scores);
-            } else {
-                console.warn('Error en la solicitud. Estado:', request.status);
-            }
-        };
-        request.send();
+            }).catch(error => {
+                console.log(error);
+            });
+        }).catch(error => {
+            console.log(error);
+        });
     };
 }
