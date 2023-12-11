@@ -67,14 +67,11 @@ export class PlayController extends Controller {
 
             if (this.isGameComplete()) {
                 this.gameComplete = true;
+                let scoreBonus = 1;
                 window.clearInterval(this.playingTimer);
                 this.playingTimer = null;
-                let value = parseInt(((this.clicksCounter + 1) / this.timeCounter) / 2 * 100);
-                let score = new Score(this.clicksCounter, this.appManager.getDifficulty(), value, this.timeCounter,
-                    this.appManager.getUsername());
-                this.service.sendScores(score, this.appManager.getBaseURL());
+                this.createPlayerScore(scoreBonus);
             }
-
         } else {
             this.showingTimer = window.setTimeout
                 (this.hideCardsWhenNotEquals.bind(this), 1000)
@@ -127,5 +124,23 @@ export class PlayController extends Controller {
         this.view.removeCards();
         this.service.getCards(this.appManager.getDifficulty(), this.appManager.getTheme(), this.appManager.getBaseURL());
         this.updateHUD();
+    }
+
+    createPlayerScore(scoreBonus) {
+        let gameMode = this.appManager.getDifficulty();
+        this.scoreBonus = scoreBonus;
+
+        if (gameMode == 8) {
+            let bonus = 2;
+            this.scoreBonus = bonus;
+        } else if (gameMode == 10) {
+            let bonus = 3;
+            this.scoreBonus = bonus;
+        }
+
+        let value = Math.round(((this.clicksCounter + 1) / this.timeCounter) / 2 * 1000) * this.scoreBonus;
+        let score = new Score(this.clicksCounter, this.appManager.getDifficulty(), value, this.timeCounter,
+            this.appManager.getUsername());
+        this.service.sendScores(score, this.appManager.getBaseURL());
     }
 }
