@@ -1,17 +1,22 @@
-import { div } from "../../libs/html.js";
+import { div, p } from "../../libs/html.js";
 import { ViewForController } from "../../views/viewForController.js";
+import { ScoreCards } from "../../views/scoresView/scoresView.js";
 
 export class ScoreView extends ViewForController {
     constructor(controller, parent) {
         super(controller, parent);
         this.container.className = 'scoreController';
 
-        this.loginBtn
-            = div(this.elementContainer,
-                { className: 'gameBtn', innerHTML: 'SCORES', onclick: this.OnScoreBtn.bind(this) });
+        this.title = p(this.elementContainer, { className: 'topScores', innerHTML: 'Top BrainMe`s' });
+        this.scoresContainer = div(this.elementContainer, { className: 'scoresContainer' });
+        this.scoresContainer.scrollIntoView();
         this.setStartPosition();
         this.moveIn();
     }
 
-    OnScoreBtn() { }
+    showScores(scores) {
+        scores.forEach(score => {
+            let scoreCard = new ScoreCards(this.scoresContainer, score);
+        });
+    }
 }

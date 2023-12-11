@@ -1,0 +1,14 @@
+
+.scoreView {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    box-sizing: border-box;
+    border: 4px solid var(--secundary-color);
+    border-radius: 12px;
+    padding: 20px;
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 25px;
+}

@@ -4,70 +4,70 @@
             "username": "Emilio",
             "clicks": 300,
             "time": 394,
-            "difficulty": "low",
+            "difficulty": "6",
             "score": 254
         },
         "score2": {
             "username": "Carlos",
             "clicks": 453,
             "time": 234,
-            "difficulty": "hard",
+            "difficulty": "10",
             "score": 158
         },
         "score3": {
             "username": "Ana",
             "clicks": 100,
             "time": 60,
-            "difficulty": "medium",
+            "difficulty": "8",
             "score": 543
         },
         "score4": {
             "username": "Ana",
             "clicks": 15,
             "time": 15,
-            "difficulty": "low",
+            "difficulty": "6",
             "score": 50
         },
         "score5": {
             "username": "Elena",
             "clicks": 200,
             "time": 300,
-            "difficulty": "medium",
+            "difficulty": "8",
             "score": 180
         },
         "score6": {
             "username": "David",
             "clicks": 400,
             "time": 180,
-            "difficulty": "hard",
+            "difficulty": "10",
             "score": 300
         },
         "score7": {
             "username": "Luisa",
             "clicks": 150,
             "time": 90,
-            "difficulty": "low",
+            "difficulty": "6",
             "score": 450
         },
         "score8": {
             "username": "Mario",
             "clicks": 50,
             "time": 50,
-            "difficulty": "medium",
+            "difficulty": "8",
             "score": 120
         },
         "score9": {
             "username": "Laura",
             "clicks": 350,
             "time": 200,
-            "difficulty": "hard",
+            "difficulty": "10",
             "score": 280
         },
         "score10": {
             "username": "Sofia",
             "clicks": 120,
             "time": 180,
-            "difficulty": "low",
+            "difficulty": "6",
             "score": 200
         }
     }

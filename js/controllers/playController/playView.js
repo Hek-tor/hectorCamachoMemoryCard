@@ -1,5 +1,4 @@
 import { div, p } from "../../libs/html.js";
-import { Card } from "../../models/card.js";
 import { CardView } from "../../views/cardsView/cardView.js";
 import { ViewForController } from "../../views/viewForController.js";
 

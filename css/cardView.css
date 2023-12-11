@@ -21,11 +21,6 @@
     background-color: var(--card-discovered);
 }
 
-
-
-
-
-
 .cardView_discovered:hover {
     -webkit-animation: shakeMove 1s ease-in;
     animation: shakeMove 1s ease-in;
