@@ -69,7 +69,7 @@ export class PlayController extends Controller {
                 this.gameComplete = true;
                 window.clearInterval(this.playingTimer);
                 this.playingTimer = null;
-                let value = this.clicksCounter + this.timeCounter;
+                let value = parseInt(((this.clicksCounter + 1) / this.timeCounter) / 2 * 100);
                 let score = new Score(this.clicksCounter, this.appManager.getDifficulty(), value, this.timeCounter,
                     this.appManager.getUsername());
                 this.service.sendScores(score, this.appManager.getBaseURL());
