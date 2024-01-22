@@ -1,6 +1,9 @@
 #VsCode
 *.vscode
 
+#Firebase
+*.firebase
+
 # Logs
 logs
 *.log

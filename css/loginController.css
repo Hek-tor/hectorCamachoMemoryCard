@@ -1,0 +1,21 @@
+.loginController {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.loginController_input {
+    text-align: center;
+    font-size: 30px;
+
+    border: 4px solid var(--tertiary-color);
+    padding: 10px;
+    height: 40px;
+    width: 75%;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+
+.loginController_input:focus {
+    outline: none;
+}
