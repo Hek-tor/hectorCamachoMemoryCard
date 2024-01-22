@@ -66,7 +66,7 @@ export class PlayController extends Controller {
             this.clearCardsViews();
 
             if (this.isGameComplete()) {
-                this.gameComplete = true;
+                this.gameOverAlert();
                 let scoreBonus = 1;
                 window.clearInterval(this.playingTimer);
                 this.playingTimer = null;
@@ -142,5 +142,11 @@ export class PlayController extends Controller {
         let score = new Score(this.clicksCounter, this.appManager.getDifficulty(), value, this.timeCounter,
             this.appManager.getUsername());
         this.service.sendScores(score, this.appManager.getBaseURL());
+    }
+
+    gameOverAlert() {
+        let userWinner = this.appManager.getUsername();
+        this.gameComplete = true;
+        this.view.gamerOverAlert(userWinner);
     }
 }

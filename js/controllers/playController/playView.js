@@ -1,4 +1,4 @@
-import { div, p } from "../../libs/html.js";
+import { div, p, SwalGameComplete } from "../../libs/html.js";
 import { CardView } from "../../views/cardsView/cardView.js";
 import { ViewForController } from "../../views/viewForController.js";
 
@@ -44,5 +44,9 @@ export class PlayView extends ViewForController {
 
     removeCards() {
         this.cardsContainer.innerHTML = '';
+    }
+
+    gamerOverAlert(userWinner) {
+        SwalGameComplete('Congratulations ', userWinner, 'You successfully completed the challenge');
     }
 }

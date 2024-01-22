@@ -96,6 +96,17 @@
     background-color: var(--secundary-color);
 }
 
+.gameBtnSelected {
+    box-shadow: 10px 10px 5px 0px rgba(34, 0, 153, 0.19);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(34, 0, 153, 0.19);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(34, 0, 153, 0.19);
+
+    box-sizing: border-box;
+    color: var(--secundary-color);
+    background-color: #fff;
+    border: 5px solid var(--secundary-color);
+}
+
 .hidden {
     display: none !important;
 }
