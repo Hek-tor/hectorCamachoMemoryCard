@@ -38,8 +38,16 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    
+
     margin-top: 50px;
     width: 85%;
     height: auto;
+}
+
+@media (width <=420px) {
+    .playController_cardsContainer {
+        margin-top: 25px;
+        width: 100%;
+        height: auto;
+    }
 }
